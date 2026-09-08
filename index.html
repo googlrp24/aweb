@@ -8,7 +8,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Фан-клуб @air_xander — Полный профиль" />
-    <meta property="og:description" content="Полная информация о Волохове Александре Евгеньевиче, его семье, транспорте, медицине и многом другом." />
+    <meta property="og:description" content="Полная информация о Волохове Александре Евгеньевиче, его семье, транспорте, медицине y многом другом." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fanclub-airxander.ru" />
     <meta property="og:image" content="https://sun1-29.vkuserphoto.ru/s/v1/ig1/Zuz1xftI_9wKCa7mAp0ASUsRRqtPtr5wUel_i1I-yCdWAYjkNCOxqJlQAsYD4FR3vir9kJuv.jpg?quality=96&crop=0,55,1208,1208&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&u=ygHFrKep3AFP5cqWBnKn62ZTgEzm_PQdbopQumBMcWk&cs=400x400" />
@@ -244,6 +244,18 @@
         }
         .row .value a:hover { border-bottom-color: #ff5a36; }
 
+        /* Стиль для разделения братьев */
+        .brother-divider {
+            margin: 12px 0 8px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .brother-block {
+            margin-top: 6px;
+        }
+        .brother-block .row:last-child {
+            border-bottom: none;
+        }
+
         .inline-photo {
             display: flex;
             align-items: center;
@@ -313,6 +325,53 @@
             border-left: 3px solid #ff5a36;
             line-height: 1.5;
             color: #ffb0a0;
+        }
+
+        /* ===== Видео ===== */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ===== Фото iPhone ===== */
+        .iphone-photo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 12px;
+            padding: 10px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+        }
+        .iphone-photo img {
+            max-width: 200px; /* Ajuste para que no sea demasiado grande */
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.08);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .iphone-photo img:hover {
+            transform: scale(1.02);
+            border-color: #ff5a36;
+        }
+        .iphone-photo .price {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-align: center;
         }
 
         /* ===== Лайтбокс ===== */
@@ -719,6 +778,7 @@
             .lightbox-overlay .close-btn { top: 16px; right: 20px; font-size: 2rem; }
             .vip-box h2 { font-size: 1.8rem; }
             .plane-icon { font-size: 70px; }
+            .iphone-photo img { max-width: 150px; }
         }
         @media (max-width: 480px) {
             .header { padding: 12px 14px; }
@@ -728,6 +788,7 @@
             .row .value { font-size: 0.8rem; }
             .note { font-size: 0.8rem; padding: 10px 12px; }
             .vip-box { padding: 20px 16px; }
+            .iphone-photo img { max-width: 120px; }
         }
 
         footer {
@@ -851,6 +912,9 @@
                     <div class="row"><span class="label">Место работы</span><span class="value">ООО АКАДЕМИЯ ЗДОРОВЬЯ</span></div>
                     <div class="row"><span class="label">ИП</span><span class="value">действующее, оптовая торговля (46.90)</span></div>
                     <div class="row"><span class="label">MAX</span><span class="value"><a href="https://max.ru/+79262179727" target="_blank">+79262179727</a></span></div>
+                    <div class="note" style="margin-top:12px;">
+                        ⚠️ Также известна как <strong>Оксана Редина</strong> (возможно, использует это имя в соцсетях или при знакомствах). По некоторым данным, в последнее время у неё появился новый партнёр / ухажёр — предположительно, она нашла нового мужчину.
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-title"><span class="emoji">👨</span> Папа – Евгений Александрович</div>
@@ -862,21 +926,34 @@
                     <div class="row"><span class="label">ФИО</span><span class="value">Волохов Евгений Александрович</span></div>
                     <div class="row"><span class="label">Специализация</span><span class="value">Дерматолог, андролог, венеролог, миколог, уролог</span></div>
                     <div class="row"><span class="label">Email</span><span class="value">evgen-volohov@mail.ru</span></div>
+                    <!-- ВИДЕО -->
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/NUXENnPzN4Q" title="Вопросы к венерологу - урологу." allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-title"><span class="emoji">👦</span> Братья</div>
-                    <div class="row"><span class="label">Михаил Евгеньевич</span><span class="value">27.05.2022 (4 года)</span></div>
-                    <div class="row"><span class="label">СНИЛС Михаила</span><span class="value">21611577336</span></div>
-                    <div class="row"><span class="label">Полис Михаила</span><span class="value">7794779722000167</span></div>
-                    <div class="row" style="border-bottom: none; padding-top:6px;">
-                        <span class="label">Вячеслав Евгеньевич</span>
-                        <span class="value" style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end;">
-                            23.08.2004 (22 года)
-                            <img src="https://sun9-84.vkuserphoto.ru/s/v1/ig2/p_CUOoQBkrfTAuhAQDZppSmcKZ2G_3KeAuVTF3byYqAUe8BQg4AGRpVmfft-dXYMGo---z2xBT23WCUdHIWFLjGe.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,768x576&from=bu&u=aZ7gu1M218bHYVnH9sO0hYX5NyuU0OF7IS6eJD2Cj6o&cs=768x0" alt="Вячеслав" style="height:50px; width:auto; border-radius:6px; cursor:pointer; border:1px solid rgba(255,255,255,0.1);" onclick="openLightbox(this.src)">
-                        </span>
+                    <!-- БЛОК МИХАИЛА -->
+                    <div class="brother-block">
+                        <div class="row"><span class="label">Михаил Евгеньевич</span><span class="value">27.05.2022 (4 года)</span></div>
+                        <div class="row"><span class="label">СНИЛС Михаила</span><span class="value">21611577336</span></div>
+                        <div class="row"><span class="label">Полис Михаила</span><span class="value">7794779722000167</span></div>
                     </div>
-                    <div class="row"><span class="label">СНИЛС Вячеслава</span><span class="value">18874574139</span></div>
-                    <div class="row"><span class="label">Полис Вячеслава</span><span class="value">6991599726000101</span></div>
+                    <!-- РАЗДЕЛИТЕЛЬ -->
+                    <div class="brother-divider"></div>
+                    <!-- БЛОК ВЯЧЕСЛАВА -->
+                    <div class="brother-block">
+                        <div class="row" style="border-bottom: none; padding-bottom:4px;">
+                            <span class="label">Вячеслав Евгеньевич</span>
+                            <span class="value" style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end;">
+                                23.08.2004 (22 года)
+                                <img src="https://sun9-84.vkuserphoto.ru/s/v1/ig2/p_CUOoQBkrfTAuhAQDZppSmcKZ2G_3KeAuVTF3byYqAUe8BQg4AGRpVmfft-dXYMGo---z2xBT23WCUdHIWFLjGe.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,768x576&from=bu&u=aZ7gu1M218bHYVnH9sO0hYX5NyuU0OF7IS6eJD2Cj6o&cs=768x0" alt="Вячеслав" style="height:50px; width:auto; border-radius:6px; cursor:pointer; border:1px solid rgba(255,255,255,0.1);" onclick="openLightbox(this.src)">
+                                <a href="https://vk.ru/flixero_hero" target="_blank" style="font-size:0.8rem;">VK</a>
+                            </span>
+                        </div>
+                        <div class="row"><span class="label">СНИЛС Вячеслава</span><span class="value">18874574139</span></div>
+                        <div class="row"><span class="label">Полис Вячеслава</span><span class="value">6991599726000101</span></div>
+                    </div>
                 </div>
             </div>
 
@@ -952,7 +1029,7 @@
                     <div class="row"><span class="label">Телефон</span><span class="value">+7 926 217 97 27</span></div>
                     <div class="row"><span class="label">Дом. телефон</span><span class="value">+7 499 317 66 90</span></div>
                     <div class="row"><span class="label">Документ</span><span class="value">свид. о рожд. VI-МЮ641178</span></div>
-                    <div class="row"><span class="label">Регистрация</span><span class="value">г. Москва · не вакцинирован</span></div>
+                    <div class="row"><span class="label">Регистрация</span><span class="value">г. Москва · <strong>не вакцинирован (COVID-19)</strong></span></div>
                 </div>
                 <div class="card">
                     <div class="card-title"><span class="emoji">📋</span> Медицинские визиты (2020–2024)</div>
@@ -998,11 +1075,26 @@
                 </div>
             </div>
 
+            <!-- 8. iPhone 12 Pro Max (NUEVA SECCIÓN) -->
+            <div class="section-divider">📱 <span>Устройство: iPhone 12 Pro Max</span></div>
+            <div class="grid">
+                <div class="card full-width">
+                    <div class="card-title"><span class="emoji">📱</span> iPhone 12 Pro Max</div>
+                    <div class="iphone-photo">
+                        <img src="https://i.ebayimg.com/images/g/HMEAAOSwLMZhtmgL/s-l1200.jpg" alt="iPhone 12 Pro Max" onclick="openLightbox(this.src)">
+                        <div class="price">
+                            <strong>Ориентировочная стоимость:</strong> от 19 000 ₽ (б/у) до 140 000 ₽ (новый) в зависимости от состояния и объёма памяти.
+                            <br><span style="font-size:0.8rem; opacity:0.6;">*Цены на вторичном рынке могут сильно варьироваться.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <footer>Неофициальный фан-клуб · 2026 · Все данные основаны на открытых источниках</footer>
         </div>
     </div>
 
-    <!-- ===== КОНТАКТНАЯ ФОРМА (с кнопками X и -) ===== -->
+    <!-- ===== КОНТАКТНАЯ ФОРМА (с кнопками X y -) ===== -->
     <div id="contactSection">
         <div class="contact-header">
             <span class="title"><span class="emoji">✉️</span> Связь с нами</span>
@@ -1035,7 +1127,7 @@
         </div>
     </div>
 
-    <!-- ===== КНОПКА ДЛЯ ПОВТОРНОГО ОТКРЫТИЯ (появляется при закрытии) ===== -->
+    <!-- ===== КНОПКА PARA REABRIR ===== -->
     <button id="contactToggleBtn" title="Открыть форму">💬</button>
 
     <!-- ===== ЛАЙТБОКС ===== -->
@@ -1053,7 +1145,7 @@
         const vipOverlay = document.getElementById('vipOverlay');
         const planePreloader = document.getElementById('planePreloader');
 
-        // ===== ФУНКЦИЯ ОБНОВЛЕНИЯ СЧЁТЧИКА (общая) =====
+        // ===== ФУНКЦИЯ ОБНОВЛЕНИЯ СЧЁТЧИКА =====
         function updateCountdown() {
             const diff = targetDate - Date.now();
             const stamp = document.getElementById('stamp');
@@ -1097,7 +1189,7 @@
         let timerInterval = setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // ===== ФУНКЦИЯ: показать самолёт и загрузить контент =====
+        // ===== ФУНКЦИЯ: показать самолёт y загрузить контент =====
         function showPlaneAndLoad() {
             planePreloader.classList.add('active');
             setTimeout(() => {
@@ -1147,28 +1239,24 @@
             }
         });
 
-        // ===== УПРАВЛЕНИЕ КОНТАКТНОЙ ФОРМОЙ (X и -) =====
+        // ===== УПРАВЛЕНИЕ КОНТАКТНОЙ ФОРМОЙ (X y -) =====
         const contactSection = document.getElementById('contactSection');
         const contactBody = document.getElementById('contactBody');
         const toggleBtn = document.getElementById('contactToggleBtn');
 
-        // Минимизация
         document.getElementById('minimizeContact').addEventListener('click', function() {
             contactBody.classList.toggle('minimized');
             this.textContent = contactBody.classList.contains('minimized') ? '+' : '−';
         });
 
-        // Закрытие
         document.getElementById('closeContact').addEventListener('click', function() {
             contactSection.classList.add('hidden');
             toggleBtn.classList.add('active');
         });
 
-        // Открытие через плавающую кнопку
         toggleBtn.addEventListener('click', function() {
             contactSection.classList.remove('hidden');
             toggleBtn.classList.remove('active');
-            // Если было свернуто, разворачиваем
             if (contactBody.classList.contains('minimized')) {
                 contactBody.classList.remove('minimized');
                 document.getElementById('minimizeContact').textContent = '−';
