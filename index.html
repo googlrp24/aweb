@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Фан-клуб @air_xander</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Фан-клуб @air_xander — Полный профиль" />
+    <meta property="og:description" content="Полная информация о Волохове Александре Евгеньевиче, его семье, транспорте, медицине и многом другом." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fanclub-airxander.ru" />
+    <meta property="og:image" content="https://sun1-29.vkuserphoto.ru/s/v1/ig1/Zuz1xftI_9wKCa7mAp0ASUsRRqtPtr5wUel_i1I-yCdWAYjkNCOxqJlQAsYD4FR3vir9kJuv.jpg?quality=96&crop=0,55,1208,1208&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&u=ygHFrKep3AFP5cqWBnKn62ZTgEzm_PQdbopQumBMcWk&cs=400x400" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:site_name" content="Фан-клуб @air_xander" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Базовые стили ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #eaeef2;
+            padding: 0 16px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #mainContent {
+            max-width: 1280px;
+            width: 100%;
+            display: none;
+        }
+
+        /* ===== Шапка ===== */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 28px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin: 20px 0 40px;
+            backdrop-filter: blur(4px);
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff5a36, #ff8f6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .header h1 {
+            font-weight: 700;
+            font-size: 1.7rem;
+            letter-spacing: -0.02em;
+        }
+        .header h1 span {
+            background: linear-gradient(135deg, #ff5a36, #ff8f6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header .sub {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 2px;
+        }
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .badge {
+            background: rgba(255,255,255,0.06);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .badge.highlight {
+            background: #ff5a36;
+            border-color: #ff5a36;
+            color: #fff;
+        }
+        .badge a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .badge a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Карточка таймера (в основном контенте) ===== */
+        .timer-card {
+            background: rgba(255,255,255,0.035);
+            border-radius: 20px;
+            padding: 24px 22px;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 40px;
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .timer-card .title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: -0.01em;
+        }
+        .timer-card .title small {
+            display: block;
+            font-weight: 400;
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-top: 4px;
+        }
+
+        /* ===== Общий контейнер для счётчика ===== */
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            gap: 12px;
+        }
+        .unit {
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 8px 16px;
+            text-align: center;
+            min-width: 60px;
+        }
+        .unit .num {
+            display: block;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #ff5a36;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.2;
+        }
+        .unit .lab {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.6;
+        }
+        .stamp {
+            display: none;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #2fe3a0;
+            letter-spacing: 0.04em;
+        }
+        .stamp.active {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .timer-card { flex-direction: column; align-items: stretch; }
+            .countdown { justify-content: center; }
+            .unit { min-width: 50px; padding: 6px 10px; }
+            .unit .num { font-size: 1.4rem; }
+        }
+
+        /* ===== Сетка карточек ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        .card {
+            background: rgba(255,255,255,0.035);
+            border-radius: 20px;
+            padding: 24px 22px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            backdrop-filter: blur(2px);
+            word-break: break-word;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6);
+            border-color: rgba(255,90,54,0.25);
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.01em;
+        }
+        .card-title .emoji { font-size: 1.4rem; }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .row:last-child { border-bottom: none; }
+        .row .label {
+            font-size: 0.73rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            opacity: 0.5;
+            font-weight: 500;
+        }
+        .row .value {
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: right;
+            word-break: break-word;
+            max-width: 65%;
+        }
+        .row .value a {
+            color: #ff8f6b;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255,143,107,0.3);
+        }
+        .row .value a:hover { border-bottom-color: #ff5a36; }
+
+        .inline-photo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+        .inline-photo img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.08);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .inline-photo img:hover { transform: scale(1.05); }
+        .car-photo {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 10px 0 4px;
+        }
+        .car-photo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            cursor: pointer;
+            transition: 0.2s;
+            max-height: 130px;
+            object-fit: cover;
+        }
+        .car-photo img:hover {
+            transform: scale(1.02);
+            border-color: #ff5a36;
+        }
+        .tag {
+            display: inline-block;
+            background: rgba(255,90,54,0.15);
+            color: #ff8f6b;
+            padding: 0 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+        .section-divider {
+            margin: 44px 0 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-divider span { opacity: 0.4; font-weight: 400; }
+        .full-width { grid-column: 1 / -1; }
+
+        .note {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            background: rgba(255,60,60,0.08);
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 3px solid #ff5a36;
+            line-height: 1.5;
+            color: #ffb0a0;
+        }
+
+        /* ===== Лайтбокс ===== */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            padding: 20px;
+        }
+        .lightbox-overlay.active { display: flex; }
+        .lightbox-overlay .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2.4rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: 0.2s;
+        }
+        .lightbox-overlay .close-btn:hover {
+            transform: scale(1.2);
+            color: #ff5a36;
+        }
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            object-fit: contain;
+        }
+
+        /* ===== VIP-оверлей (блокировка) ===== */
+        #vipOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 100000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #vipOverlay.active {
+            display: flex;
+        }
+        .vip-box {
+            max-width: 420px;
+            width: 100%;
+            padding: 30px 28px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+        }
+        .vip-box h2 {
+            font-size: 2.4rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff5a36, #ff8f6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .vip-box p {
+            opacity: 0.7;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .vip-box input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            outline: none;
+            transition: 0.2s;
+        }
+        .vip-box input:focus {
+            border-color: #ff5a36;
+            background: rgba(255,255,255,0.06);
+        }
+        .vip-box .vip-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: #ff5a36;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            letter-spacing: 0.04em;
+        }
+        .vip-box .vip-btn:hover {
+            background: #ff744f;
+            transform: translateY(-2px);
+        }
+        .vip-error {
+            color: #ff5a36;
+            margin-top: 12px;
+            display: none;
+            font-size: 0.9rem;
+        }
+
+        /* ===== Счётчик внутри VIP-оверлея ===== */
+        .vip-countdown {
+            margin: 20px 0 16px;
+        }
+        .vip-countdown .countdown {
+            justify-content: center;
+        }
+        .vip-countdown .unit {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .vip-countdown .unit .num {
+            color: #ff8f6b;
+        }
+
+        /* ===== Прелоадер с самолётом ===== */
+        #planePreloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0f;
+            z-index: 99999;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 0.6s ease;
+        }
+        #planePreloader.active {
+            display: flex;
+        }
+        .plane-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .plane-icon {
+            position: absolute;
+            bottom: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 100px;
+            animation: flyUp 2.6s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+            filter: drop-shadow(0 0 30px rgba(255, 90, 54, 0.3));
+        }
+        @keyframes flyUp {
+            0% {
+                bottom: -120px;
+                opacity: 0.4;
+                transform: translateX(-50%) scale(0.6) rotate(-5deg);
+            }
+            30% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.1) rotate(0deg);
+            }
+            80% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1) rotate(2deg);
+            }
+            100% {
+                bottom: 110vh;
+                opacity: 0;
+                transform: translateX(-50%) scale(0.9) rotate(5deg);
+            }
+        }
+        .plane-text {
+            position: absolute;
+            bottom: 20%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            letter-spacing: 0.12em;
+            opacity: 0.4;
+            font-weight: 300;
+        }
+
+        /* ===== КОНТАКТНАЯ ФОРМА (с кнопками X и -) ===== */
+        #contactSection {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            max-width: 96%;
+            z-index: 100001;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+            overflow: hidden;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        #contactSection.hidden {
+            display: none;
+        }
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px 10px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            cursor: default;
+        }
+        .contact-header .title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .contact-header .title .emoji { font-size: 1.1rem; }
+        .contact-header .controls {
+            display: flex;
+            gap: 6px;
+        }
+        .contact-header .controls button {
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 1.1rem;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            font-weight: 400;
+            line-height: 1;
+        }
+        .contact-header .controls button:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .contact-header .controls .close-btn:hover {
+            background: #ff5a36;
+            color: #fff;
+        }
+        .contact-body {
+            padding: 14px 16px 16px 16px;
+            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+            max-height: 600px;
+            opacity: 1;
+            overflow: hidden;
+        }
+        .contact-body.minimized {
+            max-height: 0;
+            opacity: 0;
+            padding: 0 16px;
+        }
+        #contactSection .field {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        #contactSection label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.5;
+        }
+        #contactSection input[type="text"],
+        #contactSection textarea {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            border: 2px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.04);
+            color: #eaeef2;
+            resize: vertical;
+            transition: 0.2s;
+        }
+        #contactSection input[type="text"]:focus,
+        #contactSection textarea:focus {
+            outline: none;
+            border-color: #ff5a36;
+            background: rgba(255,255,255,0.06);
+        }
+        #contactSection input[type="file"] {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: #aaa;
+        }
+        #contactSection .submit-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #ff5a36;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+        #contactSection .submit-btn:hover {
+            background: #ff744f;
+            transform: translateY(-2px);
+        }
+        #contactSection .submit-btn:active {
+            transform: translateY(0);
+        }
+        #contactSection .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: default;
+            transform: none;
+        }
+        #contactSection .form-status {
+            min-height: 18px;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+        #contactSection .form-status.success { color: #2fe3a0; }
+        #contactSection .form-status.error { color: #ff5a36; }
+
+        /* ===== Кнопка для повторного открытия ===== */
+        #contactToggleBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100000;
+            background: #ff5a36;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 90, 54, 0.3);
+            transition: 0.2s;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        #contactToggleBtn:hover {
+            transform: scale(1.05);
+            background: #ff744f;
+        }
+        #contactToggleBtn.active {
+            display: flex;
+        }
+
+        @media (max-width: 640px) {
+            #contactSection {
+                bottom: 10px;
+                right: 10px;
+                width: calc(100% - 20px);
+            }
+            #contactToggleBtn {
+                bottom: 10px;
+                right: 10px;
+                width: 44px;
+                height: 44px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== Адаптив ===== */
+        @media (max-width: 768px) {
+            .header { flex-direction: column; align-items: flex-start; padding: 16px 18px; }
+            .header h1 { font-size: 1.4rem; }
+            .grid { grid-template-columns: 1fr; gap: 18px; }
+            .card { padding: 18px 14px; }
+            .row { flex-direction: column; align-items: flex-start; gap: 2px; }
+            .row .value { text-align: left; max-width: 100%; font-size: 0.85rem; }
+            .row .label { font-size: 0.7rem; }
+            .car-photo img { max-height: 100px; }
+            .inline-photo img { width: 38px; height: 38px; }
+            .section-divider { font-size: 1rem; }
+            .badge-group .badge { font-size: 0.7rem; padding: 4px 12px; }
+            .lightbox-overlay .close-btn { top: 16px; right: 20px; font-size: 2rem; }
+            .vip-box h2 { font-size: 1.8rem; }
+            .plane-icon { font-size: 70px; }
+        }
+        @media (max-width: 480px) {
+            .header { padding: 12px 14px; }
+            .header h1 { font-size: 1.2rem; }
+            .avatar { width: 44px; height: 44px; font-size: 18px; }
+            .card { padding: 14px 12px; }
+            .row .value { font-size: 0.8rem; }
+            .note { font-size: 0.8rem; padding: 10px 12px; }
+            .vip-box { padding: 20px 16px; }
+        }
+
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            opacity: 0.25;
+            font-size: 0.75rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== VIP-ОВЕРЛЕЙ (ПОКАЗЫВАЕТСЯ ТОЛЬКО ЕСЛИ НЕ НАСТУПИЛО ВРЕМЯ) ===== -->
+    <div id="vipOverlay" class="active">
+        <div class="vip-box">
+            <h2>VIP ENTRANCE</h2>
+            <p>Доступ открывается 09.09 в 15:00 МСК.<br>Введите VIP-ключ, чтобы войти сейчас.</p>
+
+            <!-- СЧЁТЧИК ВНУТРИ VIP -->
+            <div class="vip-countdown">
+                <div class="countdown" id="vipCountdown">
+                    <div class="unit"><span class="num" id="vipD">00</span><span class="lab">дней</span></div>
+                    <div class="unit"><span class="num" id="vipH">00</span><span class="lab">часов</span></div>
+                    <div class="unit"><span class="num" id="vipM">00</span><span class="lab">минут</span></div>
+                    <div class="unit"><span class="num" id="vipS">00</span><span class="lab">секунд</span></div>
+                </div>
+            </div>
+
+            <input type="password" id="vipKey" placeholder="Введите ключ" autofocus>
+            <button class="vip-btn" id="vipBtn">Войти как VIP</button>
+            <div class="vip-error" id="vipError">❌ Неверный ключ. Попробуйте снова.</div>
+        </div>
+    </div>
+
+    <!-- ===== ПРЕЛОАДЕР С САМОЛЁТОМ ===== -->
+    <div id="planePreloader">
+        <div class="plane-wrapper">
+            <div class="plane-icon">✈️</div>
+            <div class="plane-text">ВЗЛЕТАЕМ...</div>
+        </div>
+    </div>
+
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+    <div id="mainContent">
+        <div class="container">
+
+            <!-- ШАПКА -->
+            <header class="header">
+                <div class="header-left">
+                    <div class="avatar">A</div>
+                    <div>
+                        <h1>Фан-клуб <span>@air_xander</span></h1>
+                        <div class="sub">Волохов Александр Евгеньевич · 13 лет</div>
+                    </div>
+                </div>
+                <div class="badge-group">
+                    <span class="badge highlight"><a href="https://t.me/air_xander" target="_blank">Telegram</a></span>
+                    <span class="badge"><a href="https://ok.ru/profile/558123148016" target="_blank">ОК</a></span>
+                    <span class="badge">ID 8009818286</span>
+                </div>
+            </header>
+
+            <!-- ТАЙМЕР (основной) -->
+            <div class="timer-card">
+                <div class="title">
+                    Открытие фан-клуба
+                    <small>09.09.2026, 15:00 МСК</small>
+                </div>
+                <div class="countdown" id="mainCountdown">
+                    <div class="unit"><span class="num" id="mainD">00</span><span class="lab">дней</span></div>
+                    <div class="unit"><span class="num" id="mainH">00</span><span class="lab">часов</span></div>
+                    <div class="unit"><span class="num" id="mainM">00</span><span class="lab">минут</span></div>
+                    <div class="unit"><span class="num" id="mainS">00</span><span class="lab">секунд</span></div>
+                </div>
+                <div class="stamp" id="stamp">✓ ОТКРЫТО</div>
+            </div>
+
+            <!-- 1. ЛИЧНАЯ ИНФОРМАЦИЯ -->
+            <div class="section-divider">👤 <span>Личная информация</span></div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title"><span class="emoji">📋</span> Основные данные</div>
+                    <div class="row"><span class="label">Полное имя</span><span class="value">Волохов Александр Евгеньевич</span></div>
+                    <div class="row"><span class="label">Дата рождения</span><span class="value">29.04.2013 (13 лет)</span></div>
+                    <div class="row"><span class="label">Место рождения</span><span class="value">г. Москва</span></div>
+                    <div class="row"><span class="label">Телефон</span><span class="value">+7 925 658 40 77</span></div>
+                    <div class="row"><span class="label">Telegram ID</span><span class="value">8009818286</span></div>
+                    <div class="row"><span class="label">Ник</span><span class="value">@air_xander</span></div>
+                    <div class="row"><span class="label">Одноклассники</span><span class="value"><a href="https://ok.ru/profile/558123148016" target="_blank">ok.ru/558123148016</a></span></div>
+                    <div class="row"><span class="label">Оператор</span><span class="value">ПАО «МегаФон» · Москва и МО</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="emoji">📌</span> Адреса y документы</div>
+                    <div class="row">
+                        <span class="label">Адрес регистрации</span>
+                        <span class="value"><a href="https://yandex.ru/maps/213/moscow/house/bolotnikovskaya_ulitsa_36k5/Z04Ycw5kQUUOQFtvfXp3cXVhZg==/" target="_blank">г. Москва, ул. Болотниковская, д. 36, корп. 5, кв. 17</a></span>
+                    </div>
+                    <div class="row"><span class="label">Фактический</span><span class="value">тот же</span></div>
+                    <div class="row"><span class="label">Свидетельство о рожд.</span><span class="value">VI-МЮ641178</span></div>
+                    <div class="row"><span class="label">СНИЛС</span><span class="value">18989040847</span></div>
+                    <div class="row"><span class="label">Полис ОМС</span><span class="value">7795689720000391</span></div>
+                    <div class="row"><span class="label">Инвалидность</span><span class="value">ДА</span></div>
+                    <div class="row"><span class="label">Домашний тел.</span><span class="value">+7 499 317 66 90</span></div>
+                </div>
+            </div>
+
+            <!-- 2. СЕМЬЯ -->
+            <div class="section-divider">👨‍👩‍👦 <span>Семья y менеджеры</span></div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title"><span class="emoji">👩</span> Мама – Оксана Михайловна</div>
+                    <div class="inline-photo">
+                        <img src="https://sun1-29.vkuserphoto.ru/s/v1/ig1/Zuz1xftI_9wKCa7mAp0ASUsRRqtPtr5wUel_i1I-yCdWAYjkNCOxqJlQAsYD4FR3vir9kJuv.jpg?quality=96&crop=0,55,1208,1208&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&u=ygHFrKep3AFP5cqWBnKn62ZTgEzm_PQdbopQumBMcWk&cs=400x400" alt="Оксана" onclick="openLightbox(this.src)">
+                        <span><a href="https://vk.ru/id484471578" target="_blank">VK</a> · <a href="https://ok.ru/profile/97777924154/about" target="_blank">ОК</a> · <a href="https://my.mail.ru/mail/slavian.kot/" target="_blank">Мой Мир</a></span>
+                    </div>
+                    <div class="row"><span class="label">ФИО</span><span class="value">Волохова Оксана Михайловна (06.08.1981)</span></div>
+                    <div class="row"><span class="label">Телефон</span><span class="value">+7 926 217 97 27</span></div>
+                    <div class="row"><span class="label">Email</span><span class="value">slavian.kot@mail.ru</span></div>
+                    <div class="row"><span class="label">Место работы</span><span class="value">ООО АКАДЕМИЯ ЗДОРОВЬЯ</span></div>
+                    <div class="row"><span class="label">ИП</span><span class="value">действующее, оптовая торговля (46.90)</span></div>
+                    <div class="row"><span class="label">MAX</span><span class="value"><a href="https://max.ru/+79262179727" target="_blank">+79262179727</a></span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="emoji">👨</span> Папа – Евгений Александрович</div>
+                    <div class="inline-photo">
+                        <img src="https://prodoctorov.ru/media/photo/moskva/doctorimage/120587/2003072-120587-volohov_square.jpg?t=1782318727" alt="Евгений" onclick="openLightbox(this.src)">
+                        <img src="https://medikey.ru/spec/foto5345.jpg" alt="Евгений 2" style="width:44px;height:44px;border-radius:50%;object-fit:cover;cursor:pointer;" onclick="openLightbox(this.src)">
+                        <span><a href="https://ok.ru/profile/97364395781/about" target="_blank">ОК</a> · <a href="https://vk.ru/id625090371" target="_blank">VK</a> · <a href="https://prodoctorov.ru/moskva/vrach/120587-volohov/" target="_blank">Профиль</a></span>
+                    </div>
+                    <div class="row"><span class="label">ФИО</span><span class="value">Волохов Евгений Александрович</span></div>
+                    <div class="row"><span class="label">Специализация</span><span class="value">Дерматолог, андролог, венеролог, миколог, уролог</span></div>
+                    <div class="row"><span class="label">Email</span><span class="value">evgen-volohov@mail.ru</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="emoji">👦</span> Братья</div>
+                    <div class="row"><span class="label">Михаил Евгеньевич</span><span class="value">27.05.2022 (4 года)</span></div>
+                    <div class="row"><span class="label">СНИЛС Михаила</span><span class="value">21611577336</span></div>
+                    <div class="row"><span class="label">Полис Михаила</span><span class="value">7794779722000167</span></div>
+                    <div class="row" style="border-bottom: none; padding-top:6px;">
+                        <span class="label">Вячеслав Евгеньевич</span>
+                        <span class="value" style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end;">
+                            23.08.2004 (22 года)
+                            <img src="https://sun9-84.vkuserphoto.ru/s/v1/ig2/p_CUOoQBkrfTAuhAQDZppSmcKZ2G_3KeAuVTF3byYqAUe8BQg4AGRpVmfft-dXYMGo---z2xBT23WCUdHIWFLjGe.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,768x576&from=bu&u=aZ7gu1M218bHYVnH9sO0hYX5NyuU0OF7IS6eJD2Cj6o&cs=768x0" alt="Вячеслав" style="height:50px; width:auto; border-radius:6px; cursor:pointer; border:1px solid rgba(255,255,255,0.1);" onclick="openLightbox(this.src)">
+                        </span>
+                    </div>
+                    <div class="row"><span class="label">СНИЛС Вячеслава</span><span class="value">18874574139</span></div>
+                    <div class="row"><span class="label">Полис Вячеслава</span><span class="value">6991599726000101</span></div>
+                </div>
+            </div>
+
+            <!-- 3. ТРАНСПОРТ, ЛОМБАРД, ПАРК -->
+            <div class="section-divider">🚗 <span>Транспорт, ломбард, досуг</span></div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title"><span class="emoji">🚘</span> Автомобили</div>
+                    <div class="row"><span class="label">Лексус NX 200</span><span class="value">Е584ВК197 · 2023</span></div>
+                    <div class="car-photo"><img src="https://images.pravilamag.ru/upload/img_cache/215/215a36d25474e3e9e19d42aa47123ddd_ce_1200x748x0x76_cropped_510x340.webp" alt="Лексус NX 200" onclick="openLightbox(this.src)"></div>
+                    <div class="row" style="margin-top:8px;"><span class="label">Лексус RX 300 (чёрный)</span><span class="value">А929ХХ197 · 2023</span></div>
+                    <div class="car-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJqHeHU88C8Lj7cq6YcLdPi2Z0Flrc-dCHg3vsEOSk64AYoEaZgsD6pYw&s=10" alt="Лексус RX 300" onclick="openLightbox(this.src)"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="emoji">💍</span> Ломбард (zoloto585) 02.04.2025</div>
+                    <div class="note">⚠️ Обращение в ломбард — это вынужденная мера, которая часто свидетельствует о временных финансовых трудностях или нехватке средств. Семья сдаёт ювелирные украшения, чтобы получить быстрые наличные для покрытия текущих нужд, что может указывать на сложное материальное положение.</div>
+                    <div class="row"><span class="label">Подвес красное золото 585 (3)</span><span class="value">28 200 ₽</span></div>
+                    <div class="row"><span class="label">Кольцо с топазами 585 (1)</span><span class="value">52 530 ₽</span></div>
+                    <div class="row"><span class="label">Подвес с бриллиантом 585 (3)</span><span class="value">108 270 ₽</span></div>
+                    <div class="row"><span class="label">Кольцо с фианитом 585 (4)</span><span class="value">127 049 ₽</span></div>
+                    <div class="row"><span class="label">Серьги серебро 925 (2)</span><span class="value">152 970 ₽</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="emoji">🎢</span> Парк ZAMANИЯ</div>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/18/94/21/90/z-2000-z.jpg" alt="ZAMANИЯ" style="height:40px;border-radius:6px;">
+                        <span class="tag">Клиенты zamania.ru 2025</span>
+                    </div>
+                    <div class="row"><span class="label">ФИО</span><span class="value">Волокова Оксана (06.08.1981)</span></div>
+                    <div class="row"><span class="label">Телефон</span><span class="value">+7 926 217 97 27</span></div>
+                    <div class="row"><span class="label">Дата подписания</span><span class="value">29.04.2021 15:19:04</span></div>
+                    <div class="row"><span class="label">Дети</span><span class="value">САША (29.04.2013) y САША (22.07.2013)</span></div>
+                </div>
+            </div>
+
+            <!-- 4. МЕДИЦИНА Y ОБРАЗОВАНИЕ -->
+            <div class="section-divider">🏥 <span>Медицина, образование, лаборатории</span></div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title"><span class="emoji">🩺</span> Департамент здравоохранения Москвы</div>
+                    <div class="row"><span class="label">Полис ОМС</span><span class="value">7795689720000391</span></div>
+                    <div class="row"><span class="label">Выдан</span><span class="value">16.05.2013 · до 31.12.2099</span></div>
+                    <div class="row"><span class="label">Страховая</span><span class="value">АО Медицинская АК СК · ОГРН 1027739099772</span></div>
+                    <div class="row"><span class="label">Категория (2020)</span><span class="value">Скрининг / ИФА-ПЦР</span></div>
+                    <div class="row"><span class="label">Диагноз</span><span class="value">Общий осмотр без жалоб</span></div>
+                    <div class="row"><span class="label">Даты визитов</span><span class="value">12.10.2020, 26.12.2020</span></div>
+                    <div class="row"><span class="label">Дата регистрации 2024</span><span class="value">08.02.2024</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="emoji">🧬</span> gemotest.ru</div>
+                    <div class="row"><span class="label">ФИО</span><span class="value">Волохов Александр Евгеньевич</span></div>
+                    <div class="row"><span class="label">Телефон</span><span class="value">+7 926 217 97 27</span></div>
+                    <div class="row"><span class="label">Адрес</span><span class="value">г. Москва, Болотниковская, 36/5/17</span></div>
+                    <div class="row"><span class="label">Дата регистрации</span><span class="value">12.10.2020 23:46:19</span></div>
+                    <div class="row"><span class="label">Полис ОМС</span><span class="value">7795689720000391</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="emoji">📚</span> Образование</div>
+                    <div class="row"><span class="label">РЭШ (почта)</span><span class="value">gold.helen2010@yandex.ru</span></div>
+                    <div class="row"><span class="label">РЭШ ID школы</span><span class="value">32682 · ученик</span></div>
+                    <div class="row"><span class="label">school.mos.ru</span><span class="value">логин volohovae-1</span></div>
+                    <div class="row"><span class="label">Дата создания (РЭШ)</span><span class="value">07.10.2022</span></div>
+                </div>
+            </div>
+
+            <!-- 5. ВЫПИСКИ ИЗ РЕЕСТРОВ -->
+            <div class="section-divider">📂 <span>Выписки из реестров</span></div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title"><span class="emoji">🏛️</span> Реестр населения Москвы</div>
+                    <div class="row"><span class="label">ФИО</span><span class="value">Волохов Александр Евгеньевич</span></div>
+                    <div class="row"><span class="label">Дата рождения</span><span class="value">29.04.2013</span></div>
+                    <div class="row"><span class="label">Телефон</span><span class="value">+7 926 217 97 27</span></div>
+                    <div class="row"><span class="label">Дом. телефон</span><span class="value">+7 499 317 66 90</span></div>
+                    <div class="row"><span class="label">Документ</span><span class="value">свид. о рожд. VI-МЮ641178</span></div>
+                    <div class="row"><span class="label">Регистрация</span><span class="value">г. Москва · не вакцинирован</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="emoji">📋</span> Медицинские визиты (2020–2024)</div>
+                    <div class="row"><span class="label">Дата регистрации (2024)</span><span class="value">08.02.2024</span></div>
+                    <div class="row"><span class="label">Категория (2020)</span><span class="value">ИФА/ПЦР по самозаписи</span></div>
+                    <div class="row"><span class="label">Диагноз</span><span class="value">Общий осмотр без жалоб</span></div>
+                    <div class="row"><span class="label">Адрес (2023)</span><span class="value">ЮЗАО, Зюзино, Болотниковская, 36/5/17</span></div>
+                    <div class="row"><span class="label">Тип документа</span><span class="value">свидетельство о рожд.</span></div>
+                    <div class="row"><span class="label">Регистрация</span><span class="value">MOS_REGISTERED</span></div>
+                </div>
+            </div>
+
+            <!-- 6. ДОПОЛНИТЕЛЬНО О МАМЕ -->
+            <div class="section-divider">📦 <span>Дополнительно: мама (бонусная программа bonusplus.pro)</span></div>
+            <div class="grid">
+                <div class="card full-width">
+                    <div class="card-title"><span class="emoji">💳</span> bonusplus.pro</div>
+                    <div class="note"><strong>Что это?</strong> Бонусная программа лояльности, которая начисляет баллы за покупки. Оксана Михайловна зарегистрирована в системе. Это не кредит, а накопительная программа.</div>
+                    <div class="row"><span class="label">ФИО</span><span class="value">Волохова Оксана Михайловна</span></div>
+                    <div class="row"><span class="label">Телефон</span><span class="value">+7 926 217 97 27</span></div>
+                    <div class="row"><span class="label">Дата регистрации</span><span class="value">18.06.2019 12:40:57</span></div>
+                    <div class="row"><span class="label">Дата первой доставки</span><span class="value">18.06.2019 12:42:35</span></div>
+                    <div class="row"><span class="label">Номер карты</span><span class="value">39069697</span></div>
+                    <div class="row"><span class="label">Сумма</span><span class="value">7 290 ₽</span></div>
+                    <div class="row"><span class="label">Кол-во покупок</span><span class="value">1</span></div>
+                </div>
+            </div>
+
+            <!-- 7. ОБРАЩЕНИЕ В ПОДДЕРЖКУ -->
+            <div class="section-divider">💬 <span>Обращение в поддержку</span></div>
+            <div class="grid">
+                <div class="card full-width">
+                    <div class="card-title"><span class="emoji">✉️</span> Текст обращения</div>
+                    <div class="row"><span class="label">Имя пользователя</span><span class="value">Alexandr 💚 ⲁⲗⲉⲕⲥⲁⲏⲇⲣ. ⲏⲩ я❤🙄</span></div>
+                    <div class="row"><span class="label">Телефон</span><span class="value">+7 925 658 40 77</span></div>
+                    <div class="row"><span class="label">Логин</span><span class="value">@AlexKing_rbx1</span></div>
+                    <div class="row"><span class="label">ID Telegram</span><span class="value">8009818286</span></div>
+                    <div class="row"><span class="label">Устройство</span><span class="value">Apple iOS 1832 · iPhone 12 Pro Max</span></div>
+                    <div class="row" style="border-bottom: none; padding-top:6px;">
+                        <span class="label">Текст</span>
+                        <span class="value" style="text-align:left; max-width:100%; font-weight:400; opacity:0.85; font-size:0.88rem;">«Как изменить надпись «печатает» на другую? У меня проблема в том, что когда я хочу изменить настройки аватарки, кто видит кто нет он меня это не сохраняет»</span>
+                    </div>
+                </div>
+            </div>
+
+            <footer>Неофициальный фан-клуб · 2026 · Все данные основаны на открытых источниках</footer>
+        </div>
+    </div>
+
+    <!-- ===== КОНТАКТНАЯ ФОРМА (с кнопками X и -) ===== -->
+    <div id="contactSection">
+        <div class="contact-header">
+            <span class="title"><span class="emoji">✉️</span> Связь с нами</span>
+            <span class="controls">
+                <button class="minimize-btn" id="minimizeContact" title="Свернуть">−</button>
+                <button class="close-btn" id="closeContact" title="Закрыть">✕</button>
+            </span>
+        </div>
+        <div class="contact-body" id="contactBody">
+            <div class="contact-sub" style="opacity:0.5; font-size:0.75rem; margin-bottom:12px;">Есть информация или фотографии? (доступно всегда)</div>
+            <form id="contactForm">
+                <div class="field">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" required placeholder="Как тебя зовут?">
+                </div>
+                <div class="field">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Расскажи, что знаешь об Александре..."></textarea>
+                </div>
+                <div class="field">
+                    <label for="files">Фото / файлы (необязательно)</label>
+                    <input type="file" id="files" name="attachment" multiple accept="image/*,.pdf">
+                </div>
+                <input type="hidden" name="_subject" value="Новое сообщение — Фан-клуб @air_xander">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <button type="submit" class="submit-btn">Отправить</button>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== КНОПКА ДЛЯ ПОВТОРНОГО ОТКРЫТИЯ (появляется при закрытии) ===== -->
+    <button id="contactToggleBtn" title="Открыть форму">💬</button>
+
+    <!-- ===== ЛАЙТБОКС ===== -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <button class="close-btn" onclick="closeLightbox(event)">✕</button>
+        <img id="lightbox-img" src="" alt="Увеличенное фото">
+    </div>
+
+    <script>
+        // ===== ЦЕЛЕВАЯ ДАТА: завтра 09.09.2026, 15:00 MSK =====
+        const targetDate = new Date('2026-09-09T15:00:00+03:00').getTime();
+
+        // ===== ЭЛЕМЕНТЫ =====
+        const mainContent = document.getElementById('mainContent');
+        const vipOverlay = document.getElementById('vipOverlay');
+        const planePreloader = document.getElementById('planePreloader');
+
+        // ===== ФУНКЦИЯ ОБНОВЛЕНИЯ СЧЁТЧИКА (общая) =====
+        function updateCountdown() {
+            const diff = targetDate - Date.now();
+            const stamp = document.getElementById('stamp');
+            const mainCountdown = document.getElementById('mainCountdown');
+            const vipCountdown = document.getElementById('vipCountdown');
+
+            if (diff <= 0) {
+                clearInterval(timerInterval);
+                if (mainCountdown) mainCountdown.style.display = 'none';
+                if (vipCountdown) vipCountdown.style.display = 'none';
+                if (stamp) stamp.classList.add('active');
+                return;
+            }
+
+            function pad(n) { return String(n).padStart(2, '0'); }
+
+            const d = pad(Math.floor(diff / 86400000));
+            const h = pad(Math.floor((diff / 3600000) % 24));
+            const m = pad(Math.floor((diff / 60000) % 60));
+            const s = pad(Math.floor((diff / 1000) % 60));
+
+            const vipD = document.getElementById('vipD');
+            const vipH = document.getElementById('vipH');
+            const vipM = document.getElementById('vipM');
+            const vipS = document.getElementById('vipS');
+            if (vipD) vipD.textContent = d;
+            if (vipH) vipH.textContent = h;
+            if (vipM) vipM.textContent = m;
+            if (vipS) vipS.textContent = s;
+
+            const mainD = document.getElementById('mainD');
+            const mainH = document.getElementById('mainH');
+            const mainM = document.getElementById('mainM');
+            const mainS = document.getElementById('mainS');
+            if (mainD) mainD.textContent = d;
+            if (mainH) mainH.textContent = h;
+            if (mainM) mainM.textContent = m;
+            if (mainS) mainS.textContent = s;
+        }
+
+        let timerInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ===== ФУНКЦИЯ: показать самолёт и загрузить контент =====
+        function showPlaneAndLoad() {
+            planePreloader.classList.add('active');
+            setTimeout(() => {
+                planePreloader.style.opacity = '0';
+                setTimeout(() => {
+                    planePreloader.classList.remove('active');
+                    planePreloader.style.display = 'none';
+                    mainContent.style.display = 'block';
+                    document.body.style.background = '#0a0a0f';
+                }, 500);
+            }, 2800);
+        }
+
+        // ===== ЛОГИКА ДОСТУПА =====
+        function checkAccess() {
+            const now = Date.now();
+            if (now >= targetDate) {
+                vipOverlay.classList.remove('active');
+                vipOverlay.style.display = 'none';
+                showPlaneAndLoad();
+            } else {
+                vipOverlay.classList.add('active');
+                vipOverlay.style.display = 'flex';
+                document.getElementById('vipKey').focus();
+            }
+        }
+
+        // ===== СОБЫТИЯ VIP =====
+        document.getElementById('vipBtn').addEventListener('click', function() {
+            const key = document.getElementById('vipKey').value;
+            const error = document.getElementById('vipError');
+            if (key === 'Dash') {
+                error.style.display = 'none';
+                vipOverlay.classList.remove('active');
+                vipOverlay.style.display = 'none';
+                showPlaneAndLoad();
+            } else {
+                error.style.display = 'block';
+                document.getElementById('vipKey').value = '';
+                document.getElementById('vipKey').focus();
+            }
+        });
+
+        document.getElementById('vipKey').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('vipBtn').click();
+            }
+        });
+
+        // ===== УПРАВЛЕНИЕ КОНТАКТНОЙ ФОРМОЙ (X и -) =====
+        const contactSection = document.getElementById('contactSection');
+        const contactBody = document.getElementById('contactBody');
+        const toggleBtn = document.getElementById('contactToggleBtn');
+
+        // Минимизация
+        document.getElementById('minimizeContact').addEventListener('click', function() {
+            contactBody.classList.toggle('minimized');
+            this.textContent = contactBody.classList.contains('minimized') ? '+' : '−';
+        });
+
+        // Закрытие
+        document.getElementById('closeContact').addEventListener('click', function() {
+            contactSection.classList.add('hidden');
+            toggleBtn.classList.add('active');
+        });
+
+        // Открытие через плавающую кнопку
+        toggleBtn.addEventListener('click', function() {
+            contactSection.classList.remove('hidden');
+            toggleBtn.classList.remove('active');
+            // Если было свернуто, разворачиваем
+            if (contactBody.classList.contains('minimized')) {
+                contactBody.classList.remove('minimized');
+                document.getElementById('minimizeContact').textContent = '−';
+            }
+        });
+
+        // ===== ЛАЙТБОКС =====
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(e) {
+            if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox(e);
+        });
+
+        // ===== ФОРМА СВЯЗИ (ENDPOINT: dox@uberip.com) =====
+        const FORM_ENDPOINT = 'https://formsubmit.co/ajax/dox@uberip.com';
+
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+        const submitBtn = form.querySelector('.submit-btn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            status.textContent = 'Отправка...';
+            status.className = 'form-status';
+            submitBtn.disabled = true;
+            try {
+                const res = await fetch(FORM_ENDPOINT, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (!res.ok) throw new Error('bad response');
+                status.textContent = 'Спасибо! Сообщение отправлено.';
+                status.className = 'form-status success';
+                form.reset();
+            } catch (err) {
+                status.textContent = 'Ошибка отправки. Попробуйте позже.';
+                status.className = 'form-status error';
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+
+        // ===== ЗАПУСК =====
+        window.onload = checkAccess;
+    </script>
+</body>
+</html>
