@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -356,7 +355,7 @@
             border-radius: 10px;
         }
         .iphone-photo img {
-            max-width: 200px; /* Ajuste para que no sea demasiado grande */
+            max-width: 200px;
             height: auto;
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.08);
@@ -807,7 +806,7 @@
     <div id="vipOverlay" class="active">
         <div class="vip-box">
             <h2>VIP ENTRANCE</h2>
-            <p>Доступ открывается 09.09 в 15:00 МСК.<br>Введите VIP-ключ, чтобы войти сейчас.</p>
+            <p>Доступ открывается <strong>10.09 в 00:00 МСК</strong>.<br>Введите VIP-ключ, чтобы войти сейчас.</p>
 
             <!-- СЧЁТЧИК ВНУТРИ VIP -->
             <div class="vip-countdown">
@@ -857,7 +856,7 @@
             <div class="timer-card">
                 <div class="title">
                     Открытие фан-клуба
-                    <small>09.09.2026, 15:00 МСК</small>
+                    <small><strong>10.09.2026, 00:00 МСК</strong></small>
                 </div>
                 <div class="countdown" id="mainCountdown">
                     <div class="unit"><span class="num" id="mainD">00</span><span class="lab">дней</span></div>
@@ -1075,7 +1074,7 @@
                 </div>
             </div>
 
-            <!-- 8. iPhone 12 Pro Max (NUEVA SECCIÓN) -->
+            <!-- 8. iPhone 12 Pro Max -->
             <div class="section-divider">📱 <span>Устройство: iPhone 12 Pro Max</span></div>
             <div class="grid">
                 <div class="card full-width">
@@ -1137,8 +1136,8 @@
     </div>
 
     <script>
-        // ===== ЦЕЛЕВАЯ ДАТА: завтра 09.09.2026, 15:00 MSK =====
-        const targetDate = new Date('2026-09-09T15:00:00+03:00').getTime();
+        // ===== ЦЕЛЕВАЯ ДАТА: 10.09.2026, 00:00 MSK =====
+        const targetDate = new Date('2026-09-10T00:00:00+03:00').getTime();
 
         // ===== ЭЛЕМЕНТЫ =====
         const mainContent = document.getElementById('mainContent');
